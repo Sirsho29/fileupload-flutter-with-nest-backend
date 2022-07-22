@@ -16,7 +16,7 @@ class Home extends StatelessWidget {
           child: const Text("Upload"),
           onPressed: () {
             ImagePicker().pickImage(source: ImageSource.gallery).then(
-                  (value) => FileUploadService.onlyUploadSingleImage(
+                  (value) => FileUploadService.onlyUploadSingleImageDio(
                     File(value!.path),
                   ),
                 );
