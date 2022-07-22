@@ -15,7 +15,8 @@ class FileUploadService {
     try {
       request.send().then((value) async {
         await http.Response.fromStream(value).then((res) async {
-          if (jsonDecode(res.body)["status"].toString().trim() == "true") {
+          if (res.statusCode == 201) {
+            log(res.body);
             return true;
           }
         });
